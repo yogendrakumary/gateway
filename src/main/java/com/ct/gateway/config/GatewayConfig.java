@@ -26,8 +26,20 @@ public class GatewayConfig {
 						r -> r.path("/inbox/**").filters(f -> f.filter(filter)).uri("lb://inbox-service"))
 				.route("inbox-service",
 						r -> r.path("/notes/**").filters(f -> f.filter(filter)).uri("lb://inbox-service"))
-				.route("scheduling-service",
-						r -> r.path("/appointments/**").filters(f -> f.filter(filter)).uri("lb://admin-service"))
+				.route("schedulling-service",
+						r -> r.path("/api/**").filters(f -> f.filter(filter)).uri("lb://schedulling-service"))
+				.route("patient-service",
+						r -> r.path("/patient/**").filters(f -> f.filter(filter)).uri("lb://patient-service"))
+				.route("patient-service",
+						r -> r.path("/allergy/**").filters(f -> f.filter(filter)).uri("lb://patient-service"))
+				.route("patient-service",
+						r -> r.path("/diagnosis/**").filters(f -> f.filter(filter)).uri("lb://patient-service"))
+				.route("patient-service",
+						r -> r.path("/drug/**").filters(f -> f.filter(filter)).uri("lb://patient-service"))
+				.route("patient-service",
+						r -> r.path("/procedure/**").filters(f -> f.filter(filter)).uri("lb://patient-service"))
+				.route("patient-service",
+						r -> r.path("/vital/**").filters(f -> f.filter(filter)).uri("lb://patient-service"))
 				.build();
 	}
 }
